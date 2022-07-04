@@ -19,6 +19,12 @@
   .grid-masonry { grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); }
 }
 
+@media (max-width: 600px) {
+  .grid-masonry { display: block;
+    .article-preview:not(:first-child) { margin-top: 1rem; }
+  }
+}
+
 /* ==========================================================================
    Article Preview
    ========================================================================== */

@@ -7,6 +7,7 @@ $(document).ready(function(){
     // Слайдер
     const swiperPromoOptions = {
         loop: true,
+        speed: 1000,
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
@@ -122,6 +123,7 @@ $(document).ready(function(){
         observer: true,
         ObserveParents: true,
         loop: false,
+        speed: 1000,
         slidesPerView: 1,
         autoplay: {
             delay: 3000,
@@ -226,32 +228,34 @@ $(document).ready(function(){
      Masonry
      ========================================================================== */
 
-    function resizeGridItem(item){
-        grid = document.getElementsByClassName("grid-masonry")[0];
-        rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-        rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-        rowSpan = Math.ceil((item.querySelector('.article-preview__in').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
-        item.style.gridRowEnd = "span "+rowSpan;
-    }
+    if (window.matchMedia('(min-width: 601px)').matches) {
+        function resizeGridItem(item){
+            grid = document.getElementsByClassName("grid-masonry")[0];
+            rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+            rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+            rowSpan = Math.ceil((item.querySelector('.article-preview__in').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+            item.style.gridRowEnd = "span "+rowSpan;
+        }
 
-    function resizeAllGridItems(){
+        function resizeAllGridItems(){
+            allItems = document.getElementsByClassName("article-preview");
+            for(x=0;x<allItems.length;x++){
+                resizeGridItem(allItems[x]);
+            }
+        }
+
+        function resizeInstance(instance){
+            item = instance.elements[0];
+            resizeGridItem(item);
+        }
+
+        window.onload = resizeAllGridItems();
+        window.addEventListener("resize", resizeAllGridItems);
+
         allItems = document.getElementsByClassName("article-preview");
         for(x=0;x<allItems.length;x++){
-            resizeGridItem(allItems[x]);
+            imagesLoaded( allItems[x], resizeInstance);
         }
-    }
-
-    function resizeInstance(instance){
-        item = instance.elements[0];
-        resizeGridItem(item);
-    }
-
-    window.onload = resizeAllGridItems();
-    window.addEventListener("resize", resizeAllGridItems);
-
-    allItems = document.getElementsByClassName("article-preview");
-    for(x=0;x<allItems.length;x++){
-        imagesLoaded( allItems[x], resizeInstance);
     }
 
     /* ==========================================================================

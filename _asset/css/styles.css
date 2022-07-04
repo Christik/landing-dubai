@@ -820,6 +820,12 @@ h3,
     font-size: 3.3rem;
   }
 }
+@media (max-width: 767px) {
+  .subpage h2,
+  .subpage .h3 {
+    font-size: 1rem;
+  }
+}
 /* ==========================================================================
    Backdrop
    ========================================================================== */
@@ -869,6 +875,14 @@ h3,
   .slider-arrs .slider-arr:not(:first-child) {
     margin-left: 0.8rem;
   }
+}
+/* ==========================================================================
+   Effect
+   ========================================================================== */
+.swiper-wrapper {
+  -webkit-transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
+       -o-transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
+          transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
 }
 /* ==========================================================================
 /* ==========================================================================
@@ -1190,8 +1204,9 @@ img[data-src] {
 }
 @media (max-width: 767px) {
   .section-promo__switch {
-    top: 4.75rem;
-    right: -0.25rem;
+    top: auto;
+    bottom: 1.7rem;
+    right: 0;
     -webkit-transform: scale(0.8);
         -ms-transform: scale(0.8);
             transform: scale(0.8);
@@ -1347,6 +1362,19 @@ img[data-src] {
     left: -1rem;
     bottom: 2rem;
   }
+  .slider-promo__pages__bullet:not(:first-child) {
+    margin-left: 1.5rem;
+  }
+  .slider-promo__pages__timer {
+    width: 2rem;
+  }
+  .slider-promo__pages__bullet.is-active .slider-promo__pages__timer {
+    right: 1rem;
+    width: 1.75rem;
+  }
+  .slider-promo__pages__bullet.is-active + .slider-promo__pages__bullet .slider-promo__pages__timer {
+    width: 1.75rem;
+  }
 }
 @media (hover: hover) {
   .slider-promo__pages__bullet:not(.is-active):hover:before {
@@ -1360,9 +1388,9 @@ img[data-src] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1845,6 +1873,12 @@ img[data-src] {
   .nav-inline::-webkit-scrollbar {
     display: none;
   }
+  .nav-inline__item:not(:first-child) {
+    margin-left: 1rem;
+  }
+  .nav-inline__button {
+    font-size: 0.7rem;
+  }
 }
 @media (hover: hover) {
   .nav-inline__button:hover:after {
@@ -1856,9 +1890,28 @@ img[data-src] {
    ========================================================================== */
 .section-experts__tab {
   display: none;
+  opacity: 0;
 }
 .section-experts__tab.is-active {
   display: block;
+  -webkit-animation: tabFade 1s ease forwards;
+          animation: tabFade 1s ease forwards;
+}
+@-webkit-keyframes tabFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes tabFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /* ==========================================================================
    Expert Card
@@ -1975,8 +2028,18 @@ img[data-src] {
     margin: 0;
   }
   .card-expert__head {
-    margin: 0 0 1rem 5rem;
-    min-height: 5rem;
+    margin: 0 0 2rem 5rem;
+    min-height: 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .card-expert__name {
     font-size: 1.2rem;
@@ -2108,11 +2171,11 @@ img[data-src] {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  -o-transition: transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
 }
 .slider-experts__pages__bullet.is-active:before {
   -webkit-transform: translate(-50%, -50%) scale(1);
@@ -2157,8 +2220,8 @@ img[data-src] {
   background: #000;
 }
 .slider-experts__pages__bullet.is-active + .slider-experts__pages__bullet .slider-experts__pages__timer:before {
-  -webkit-animation: sliderTimer 3s linear forwards;
-          animation: sliderTimer 3s linear forwards;
+  -webkit-animation: sliderTimer 3.5s linear forwards;
+          animation: sliderTimer 3.5s linear forwards;
 }
 @media (max-width: 1079px) {
   .slider-experts__pages {
@@ -2212,11 +2275,11 @@ img[data-src] {
   border: solid 1px #ddd;
   width: 100%;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  -o-transition: transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
 }
 .experts-locations .dot:after {
   -webkit-transform: translate(-50%, -50%);
@@ -2225,9 +2288,9 @@ img[data-src] {
   width: 50%;
   height: 50%;
   background: #D9D9D9;
-  -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
-  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.8s;
+  -o-transition: background-color 0.8s;
+  transition: background-color 0.8s;
 }
 .experts-locations .location {
   position: absolute;
@@ -2240,9 +2303,9 @@ img[data-src] {
   color: #737D85;
   font-size: 0.8rem;
   line-height: 1;
-  -webkit-transition: color 0.3s;
-  -o-transition: color 0.3s;
-  transition: color 0.3s;
+  -webkit-transition: color 0.8s;
+  -o-transition: color 0.8s;
+  transition: color 0.8s;
 }
 .experts-locations .timer {
   -webkit-box-flex: 1;
@@ -2283,8 +2346,8 @@ img[data-src] {
   color: #E8222E;
 }
 .experts-locations .item.is-active + .timer .timer__in {
-  -webkit-animation: sliderTimer 6s linear forwards;
-          animation: sliderTimer 6s linear forwards;
+  -webkit-animation: sliderTimer 7.3s linear forwards;
+          animation: sliderTimer 7.3s linear forwards;
 }
 @media (max-width: 1079px) {
   .experts-locations .dot {
@@ -2415,9 +2478,9 @@ img[data-src] {
     left: 0;
     max-width: 25.5rem;
     opacity: 0;
-    -webkit-transition: opacity 0.7s;
-    -o-transition: opacity 0.7s;
-    transition: opacity 0.7s;
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
   }
   .section-about__text:nth-of-type(2) {
     top: 5.5rem;
@@ -2489,11 +2552,16 @@ img[data-src] {
 @media (max-width: 767px) {
   .section-about__title,
   .section-about__text {
-    padding-left: 6rem;
+    padding-left: 0;
   }
   .section-about__title {
     font-size: 25px;
     margin-bottom: 0.5em;
+  }
+  .section-about__title .section-about__photo {
+    position: static;
+    margin: 0 0 1rem;
+    width: 10rem;
   }
   .section-about__text {
     min-height: auto;
@@ -2591,6 +2659,14 @@ img[data-src] {
 @media (max-width: 767px) {
   .grid-masonry {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .grid-masonry {
+    display: block;
+  }
+  .grid-masonry .article-preview:not(:first-child) {
+    margin-top: 1rem;
   }
 }
 /* ==========================================================================
@@ -2822,6 +2898,16 @@ a.article-preview__in {
     margin-right: 2rem;
   }
 }
+@media (max-width: 767px) {
+  .developers {
+    margin-left: -1rem;
+  }
+  .developers__item {
+    width: 50%;
+    margin-right: 0;
+    text-align: center;
+  }
+}
 @media (hover: hover) {
   .developers__item {
     cursor: default;
@@ -2939,7 +3025,7 @@ a.article-preview__in {
 /* ==========================================================================
    Hidden BR
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   br.for-desktop {
     display: inline;
     content: ' ';

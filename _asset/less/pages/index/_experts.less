@@ -48,6 +48,10 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
     &::-webkit-scrollbar { display: none; }
   }
+  .nav-inline__item {
+    &:not(:first-child) { margin-left: 1rem; }
+  }
+  .nav-inline__button { font-size: .7rem; }
 }
 
 @media (hover: hover) {
@@ -61,8 +65,13 @@
    ========================================================================== */
 
 .section-experts__tabs { }
-.section-experts__tab { display: none;
-  &.is-active { display: block; }
+.section-experts__tab { display: none; opacity: 0;
+  &.is-active { display: block; animation: tabFade 1s ease forwards; }
+}
+
+@keyframes tabFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ==========================================================================
@@ -97,7 +106,7 @@
   .card-expert__top { display: block; position: relative; margin-bottom: 1rem; }
   .card-expert__photo { width: 4rem; height: 4rem; min-width: auto; position: absolute; left: 0; top: 0; }
   .card-expert__content { margin: 0; }
-  .card-expert__head { margin: 0 0 1rem 5rem; min-height: 5rem; }
+  .card-expert__head { margin: 0 0 2rem 5rem; min-height: 4rem; display: flex; flex-direction: column; justify-content: center; }
   .card-expert__name { font-size: 1.2rem; }
   .card-expert__status { font-size: .85rem; }
   .card-expert__text { padding-left: 0;
@@ -150,7 +159,7 @@
 
 .slider-experts__pages { position: absolute; left: 16rem !important; bottom: 0 !important; z-index: 5; display: flex; overflow: hidden; }
 .slider-experts__pages__bullet { width: 2.4rem; min-width: 2.4rem; height: 2.4rem; border-radius: 50%; cursor: pointer; position: relative; margin-left: 1.5rem; transform: translateX(-1.5rem);
-  &:before { content: ''; display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(.5); border: solid 1px #ddd; width: 100%; height: 100%; border-radius: inherit; transition: transform .3s; }
+  &:before { content: ''; display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(.5); border: solid 1px #ddd; width: 100%; height: 100%; border-radius: inherit; transition: transform .8s; }
   &:not(:first-child) { }
 
   &.is-active:before { transform: translate(-50%, -50%) scale(1); }
@@ -160,7 +169,7 @@
 }
 .slider-experts__pages__timer { height: 1px; width: 1.5rem; position: absolute; top: 50%; right: 100%; background: #ddd;
   &:before { content: ''; display: block; position: absolute; left: 0; top: 0; width: 0; height: 100%; background: @color-text;
-    .slider-experts__pages__bullet.is-active + .slider-experts__pages__bullet & { animation: sliderTimer 3s linear forwards; }
+    .slider-experts__pages__bullet.is-active + .slider-experts__pages__bullet & { animation: sliderTimer 3.5s linear forwards; }
   }
 }
 
@@ -180,10 +189,10 @@
   .item { position: relative; cursor: pointer; }
   .dot { width: 2.4rem; height: 2.4rem; position: relative; border-radius: 50%;
     &:before, &:after { content: ''; display: block; position: absolute; left: 50%; top: 50%; border-radius: inherit; }
-    &:before { transform: translate(-50%, -50%) scale(.5); border: solid 1px #ddd; width: 100%; height: 100%; transition: transform .3s; }
-    &:after { transform: translate(-50%, -50%); width: 50%; height: 50%; background: #D9D9D9; transition: background-color .3s; }
+    &:before { transform: translate(-50%, -50%) scale(.5); border: solid 1px #ddd; width: 100%; height: 100%; transition: transform .8s; }
+    &:after { transform: translate(-50%, -50%); width: 50%; height: 50%; background: #D9D9D9; transition: background-color .8s; }
   }
-  .location { position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); white-space: nowrap; color: @color-text-grey; font-size: .8rem; line-height: 1; transition: color .3s; }
+  .location { position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); white-space: nowrap; color: @color-text-grey; font-size: .8rem; line-height: 1; transition: color .8s; }
 
   .timer { flex-grow: 1; height: 2px; background: #D9D9D9; position: relative; margin: 0;
     &:last-child { display: none; }
@@ -200,7 +209,7 @@
       &:after { background-color: @color-primary; }
     }
     .location { color: @color-primary; }
-    + .timer .timer__in { animation: sliderTimer 6s linear forwards; }
+    + .timer .timer__in { animation: sliderTimer 7.3s linear forwards; }
   }
 }
 

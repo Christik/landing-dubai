@@ -33,7 +33,7 @@
     &:nth-of-type(3) { transform: translateY(12.5rem); }
     &:nth-of-type(5) { margin-top: auto; }
   }
-  .section-about__text { position: absolute; left: 0; max-width: 25.5rem; opacity: 0; transition: opacity .7s;
+  .section-about__text { position: absolute; left: 0; max-width: 25.5rem; opacity: 0; transition: opacity .3s;
     &:nth-of-type(2) { top: 5.5rem; }
     &:nth-of-type(4) { top: 11.5rem; }
     &:nth-of-type(6) { top: 17rem; }
@@ -85,8 +85,10 @@
 
 @media @maxMobile {
   .section-about__title,
-  .section-about__text { padding-left: 6rem; }
-  .section-about__title { font-size: 25px; margin-bottom: .5em; }
+  .section-about__text { padding-left: 0; }
+  .section-about__title { font-size: 25px; margin-bottom: .5em;
+    .section-about__photo { position: static; margin: 0 0 1rem; width: 10rem; }
+  }
   .section-about__text { min-height: auto; }
 }
 
