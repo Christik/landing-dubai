@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Section Promo
+   ========================================================================== */
+
+.section-promo { padding: 0; background: @color-dark; color: #fff; transition: color .3s, background-color.3s;
+  &.is-day { background-color: #fff; color: @color-text; }
+}
+.section-promo__in { position: relative; min-height: 800px; padding: 7.5rem 0 3.5rem; display: flex; flex-direction: column; justify-content: space-between; }
+
+@media @maxTablet {
+  .section-promo__in { padding-top: 4.5rem; min-height: 650px; }
+}
+
+@media @maxMobile {
+  .section-promo__in { padding-bottom: 4.5rem; min-height: 530px; }
+}
+
+/* ==========================================================================
+   Slider Promo
+   ========================================================================== */
+
+.slider-promo { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; opacity: 0; transition: opacity .3s; overflow: hidden;
+  &.is-active { opacity: 1; }
+}
+.slider-promo__wrapper { }
+.slider-promo__slide { background: @color-dark no-repeat 50% 50%; background-size: cover; }
+
+/* ==========================================================================
+   Promo Title
+   ========================================================================== */
+
+.section-promo__title { font-size: 3.3rem; }
+.section-promo__title__line { }
+.section-promo__title__sub { }
+
+@media @minMobile {
+  .section-promo__title__line {
+    &:nth-child(2) { margin-left: 5.5rem; }
+  }
+  .section-promo__title__sub { display: inline-block; font-size: 67%; vertical-align: top; transform: translateY(20%); }
+}
+
+@media @maxMobile {
+  .section-promo__title__sub { display: inline; }
+}
+
+/* ==========================================================================
+   Time of day Switch
+   ========================================================================== */
+
+.time-of-day { display: flex; align-items: center; text-align: left; background: none; border: none; color: #fff; }
+.time-of-day__icon { width: 1.4rem; height: 1.4rem;  border: solid 1px #fff; border-radius: 50%; overflow: hidden; position: relative; background: #fff;
+  &:before { content: ''; display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: inherit; background: @color-text; transform: translate(25%, -10%); }
+}
+.time-of-day__text { margin: 0 0 0 .5rem; font-size: .6rem; line-height: 1.25; }
+
+// day
+.time-of-day.is-day { color: @color-text;
+  .time-of-day__icon { border-color: @color-text; background-color: @color-text;
+    &:before { background-color: #fff; }
+  }
+}
+
+@media (hover: hover) {
+  .time-of-day__icon:before { transition: transform .3s; }
+
+  .time-of-day:hover {
+    .time-of-day__icon:before { transform: translate(100%, -100%); }
+  }
+}
+
+/* ==========================================================================
+   Switch
+   ========================================================================== */
+
+.section-promo__switch { position: absolute; left: 50%; top: 8rem; }
+
+@media @maxTablet {
+  .section-promo__switch { top: 5rem; left: auto; right: 0; }
+}
+
+@media @maxMobile {
+  .section-promo__switch { top: 4.75rem; right: -.25rem; transform: scale(.8); transform-origin: right top; }
+}
+
+/* ==========================================================================
+   Description
+   ========================================================================== */
+
+.section-promo__description { margin-left: 50%; }
+.section-promo__description__logo { display: block; height: 3.5rem; width: auto; margin: 0 0 1rem;
+  path.changed { transition: fill .3s;
+    .section-promo.is-day & { fill: @color-text !important; }
+  }
+}
+.section-promo__description__text { font-size: 1.1rem; line-height: 1.5; }
+
+@media @maxTablet {
+  .section-promo__description { margin-left: auto; }
+}
+
+@media @maxMobile {
+  .section-promo__description__logo { height: 2.5rem; }
+  .section-promo__description__text { font-size: .85rem; }
+}
+
+/* ==========================================================================
+   Pages
+   ========================================================================== */
+
+.slider-promo__pages { position: absolute; left: 0; bottom: 3.5rem; z-index: 5; width: 100%; }
+.slider-promo__pages__in { display: flex; }
+.slider-promo__pages__bullet { width: 1rem; height: 1rem; cursor: pointer; position: relative;
+  &:not(:first-child) { margin-left: 2rem; }
+
+  &:before { content: ''; position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; transform: translate(-50%,-50%) scale(.5); background: #fff; border: solid 2px #fff; border-radius: 50%; opacity: .4; transition: transform .3s, opacity .3s, background-color .3s; }
+
+  &:after { }
+
+  &.is-active:before { transform: translate(-50%,-50%) scale(1); background-color: transparent; opacity: 1; }
+}
+.slider-promo__pages__timer { width: 2.5rem; height: 2px; background: fade(#fff, 40%); position: absolute; top: 50%; right: .75rem; transform: translate(0, -50%); transition: width .3s, right .3s;
+
+  &:before { content: ''; display: block; position: absolute; left: 0; top: 0; width: 0; height: 100%; background: #fff;
+    .slider-promo__pages__bullet.is-active + .slider-promo__pages__bullet & { animation: sliderTimer 3s linear forwards; }
+  }
+
+  .slider-promo__pages__bullet:first-child & { display: none; }
+  .slider-promo__pages__bullet.is-active & { right: 1rem; width: 2.25rem; }
+  .slider-promo__pages__bullet.is-active + .slider-promo__pages__bullet & { width: 2.25rem; }
+}
+
+@keyframes sliderTimer {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@media @maxMobile {
+  .slider-promo__pages { left: -1rem; bottom: 2rem; }
+}
+
+@media (hover: hover) {
+  .slider-promo__pages__bullet:not(.is-active):hover {
+    &:before { opacity: 1; }
+  }
+}

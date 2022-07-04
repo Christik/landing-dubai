@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Section About
+   ========================================================================== */
+
+.section-about { background: @color-dark; color: #fff; position: relative; }
+.section-about__out { }
+.section-about__wrapper { }
+.section-about__in { }
+
+@media @minTablet {
+  .section-about { overflow: visible; padding: 0; }
+  .section-about__out { height: 300vh; position: relative; }
+  .section-about__wrapper { position: -webkit-sticky; position: sticky; top: 0; min-height: 100vh; display: flex; align-items: center; }
+  .section-about__in { display: flex; align-items: center; justify-content: space-between; padding-top: 3rem; }
+}
+
+/* ==========================================================================
+   Left Blocks
+   ========================================================================== */
+
+.section-about__blocks { }
+
+.section-about__title { }
+.section-about__text { }
+
+@media @minTablet {
+  .section-about__blocks { height: 28.5rem; display: flex; flex-direction: column; position: relative;
+    .section-about__photo { display: none; }
+  }
+
+  .section-about__title { color: #737D85; transition: transform .7s, color .7s;
+    &:nth-of-type(1) { margin-bottom: 1.5rem; }
+    &:nth-of-type(3) { transform: translateY(12.5rem); }
+    &:nth-of-type(5) { margin-top: auto; }
+  }
+  .section-about__text { position: absolute; left: 0; max-width: 25.5rem; opacity: 0; transition: opacity .7s;
+    &:nth-of-type(2) { top: 5.5rem; }
+    &:nth-of-type(4) { top: 11.5rem; }
+    &:nth-of-type(6) { top: 17rem; }
+  }
+
+  // step 1
+  .section-about__out.is-animated-1 {
+    .section-about__title {
+      &:nth-of-type(1) { color: #fff; }
+      &:nth-of-type(3) { transform: translateY(12.5rem); }
+    }
+    .section-about__text {
+      &:nth-of-type(2) { opacity: 1; }
+    }
+  }
+
+  // step 2
+  .section-about__out.is-animated-2 {
+    .section-about__title {
+      &:nth-of-type(3) { color: #fff; transform: translateY(0); }
+    }
+    .section-about__text {
+      &:nth-of-type(4) { opacity: 1; }
+    }
+  }
+
+  // step 3
+  .section-about__out.is-animated-3 {
+    .section-about__title {
+      &:nth-of-type(3) { transform: translateY(0); }
+      &:nth-of-type(5) { color: #fff; transform: translateY(-12.5rem); }
+    }
+    .section-about__text {
+      &:nth-of-type(6) { opacity: 1; }
+    }
+  }
+}
+
+@media @maxTablet {
+  .section-about__title,
+  .section-about__text { position: relative; padding-left: 12rem; }
+  .section-about__title { margin: 0 0 .25em;
+    .section-about__photo { position: absolute; top: 0; left: 0; pointer-events: none; }
+  }
+  .section-about__text { margin: 0 0 2.5rem; min-height: 11rem;
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+@media @maxMobile {
+  .section-about__title,
+  .section-about__text { padding-left: 6rem; }
+  .section-about__title { font-size: 25px; margin-bottom: .5em; }
+  .section-about__text { min-height: auto; }
+}
+
+/* ==========================================================================
+   Photos
+   ========================================================================== */
+
+.section-about__photos { }
+.section-about__photos__out { }
+.section-about__photos__in { }
+.section-about__photo { width: 18.5rem; height: 28rem; display: block; border-radius: 4rem; }
+
+@media @minTablet {
+  .section-about__photos { position: relative; width: 21.7rem; height: 28rem; }
+  .section-about__photos__out { position: absolute; left: 0; top: 0; height: 100%; width: ~"max(22.7rem, (100vw - 66rem) / 2 + 22.3rem)"; overflow: hidden; }
+  .section-about__photos__in { display: flex; align-items: flex-start; }
+  .section-about__photo { margin: 0 2.5rem 0 0; transition: transform .7s; }
+
+  // step 2
+  .section-about__out.is-animated-2 {
+    .section-about__photo:nth-child(2) { transform: translateX(-21rem); }
+    .section-about__photo:nth-child(3) { transform: translateX(-21rem); }
+  }
+
+  // step 3
+  .section-about__out.is-animated-3 {
+    .section-about__photo:nth-child(2) { transform: translateX(-21rem); }
+    .section-about__photo:nth-child(3) { transform: translateX(-42rem); }
+  }
+}
+
+@media @maxTablet {
+  .section-about__photos { display: none; }
+  .section-about__photo { width: 10rem; height: auto; border-radius: 2rem; }
+}
+
+@media @maxMobile {
+  .section-about__photo { width: 5rem; border-radius: 1rem; }
+}
+
+

@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Section Benefits
+   ========================================================================== */
+
+.section-benefits { padding-bottom: 0; background: @color-bg-grey; }
+
+/* ==========================================================================
+   Head
+   ========================================================================== */
+
+.section-benefits__head { display: flex; align-items: flex-end; justify-content: space-between; margin: 0 0 5rem; }
+.section-benefits__head__title { font-size: 4rem; line-height: 1; font-weight: 700; }
+.section-benefits__head__logo { }
+
+@media @maxTablet {
+  .section-benefits__head { margin-bottom: 3rem; }
+}
+
+@media @maxMobile {
+  .section-benefits__head { margin-top: -1rem; flex-direction: column; justify-content: flex-start; align-items: flex-start; }
+  .section-benefits__head__title { font-size: 2rem; }
+  .section-benefits__head__logo { margin-top: 1rem; }
+}
+
+/* ==========================================================================
+   Benefits List
+   ========================================================================== */
+
+.benefits { }
+.benefits__item { }
+.benefits__item__title { font-size: 2.2rem; line-height: 1.1; margin: 0 0 .75em; font-weight: 700; }
+
+@media @minTablet {
+  .benefits { display: flex; justify-content: space-between;
+    &:before, &:after { content: ''; display: block; width: 0; border-left: solid 1px fade(#737D85, 40%); }
+    &:before { order: 2; }
+    &:after { order: 4; }
+  }
+  .benefits__item { width: 28%;
+    &:nth-child(1) { order: 1; }
+    &:nth-child(2) { order: 3; }
+    &:nth-child(3) { order: 5; }
+  }
+}
+
+@media @maxTablet {
+  .benefits__item {
+    &:not(:first-child) { border-top: solid 1px fade(#737D85, 40%); padding-top: 1.5rem; }
+    &:not(:last-child) { padding-bottom: 1.5rem; }
+  }
+  .benefits__item__title { margin-bottom: .25em; }
+}
+
+@media @maxMobile {
+  .benefits__item__title { font-size: 1.5rem; }
+}
+
+/* ==========================================================================
+   Button
+   ========================================================================== */
+
+.section-benefits__button { margin: 5rem 0 0; }
+

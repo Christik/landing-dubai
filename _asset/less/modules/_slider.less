@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Slider Arrow
+   ========================================================================== */
+
+.slider-arr { width: 1.3rem; height: 1.3rem; border: none; background: url('@{path-images}/slider-arr-right.svg') no-repeat 50% 50%; overflow: hidden; position: relative; text-indent: -1000px; opacity: .5; cursor: pointer;
+  &_prev { transform: scaleX(-1); }
+  &_next { }
+
+  &.swiper-button-disabled { pointer-events: none; opacity: .15; }
+}
+
+@media (hover: hover) {
+  .slider-arr:hover { opacity: 1; }
+}
+
+/* ==========================================================================
+   Slider Arrows
+   ========================================================================== */
+
+.slider-arrs { display: flex; align-items: center;
+  .slider-arr:not(:first-child) { margin-left: 1.6rem; }
+}
+
+@media @maxMobile {
+  .slider-arrs {
+    .slider-arr:not(:first-child) { margin-left: .8rem; }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Section Video
+   ========================================================================== */
+
+.section-video { }
+.section-video__in { display: flex; align-items: center; justify-content: space-between; }
+.section-video__left { }
+.section-video__right { }
+
+@media @minTablet {
+  .section-video__left { width: 26.5rem; }
+  .section-video__right { padding-right: 2rem; }
+}
+
+@media @maxTablet and @minMobile {
+  .section-video__left { flex-grow: 1; padding-right: 1rem; }
+}
+
+@media @maxMobile {
+  .section-video__in { flex-direction: column; }
+  .section-video__right { order: -1; }
+}
+
+/* ==========================================================================
+   Video Button
+   ========================================================================== */
+
+.section-video__button { margin: 2.5rem 0 0; display: flex; align-items: center; }
+.section-video__button__text { font-size: .8rem; line-height: 1.25; margin-left: 1.5rem; max-width: 15rem; }
+
+@media @maxMobile {
+  .section-video__button { flex-direction: column; align-items: flex-start; }
+  .section-video__button__text { order: -1; margin: 0 0 1em; color: @color-text-grey; }
+}
+
+/* ==========================================================================
+   Porthole
+   ========================================================================== */
+
+.porthole { border: solid 1.2rem #DFE2DF; border-radius: 9rem; padding: 1.2rem; position: relative; }
+.porthole__video { position: relative; width: 19.3rem; height: 28.2rem; overflow: hidden; border-radius: 7rem; pointer-events: none; background: #DFE2DF url('@{path-images}/video-preview.jpg') no-repeat 50% 50%; background-size: cover;
+  iframe { display: block; border: none; position: absolute; top: 50%; left: 50%; width: 260%; height: 100%; transform: translate(-50%, -50%); }
+}
+.porthole__link { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: inherit; overflow: hidden; text-indent: -1000px; cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAY1BMVEUAAAD////////////////////////////////////////////////////////////////////////////oIi75yMv85OXsP0r+8vL2rLDqMDv0kZfxdXz1n6Tyg4ntWWL5x8vh1jR5AAAAE3RSTlMA3yBAv+8QkJ/Pr2BwUI+AMH9fnuBBQAAAArhJREFUeNrV2wly2zAMBVCAm0Stdn8cu06a9v6nbOq2g5k2mwhKUN4FiCEoUJRAKuLGYWoDM244h24a/IE24fopR7wohml0tKbkJ8Y7cutpJb6N+JDYjlTd4RixALeOavIBiwVvNLzgvuLwZiG4AJXOkUY6Qu2YqJhnVMCeyqQJlUxUwjGqYUeLfYmoKA600ITKjrRE6lBdlxakP2MF7LTLTx+B1fgSgdX4EoF2/PUjSIxV5URv67Cyjt50hIZ+YxiwgS/0KhexgejoNYxNcFJsQGsuA4/NeEUFWC8JR2xopv84bMrpSqBeoH/02Ji3KQEiGE2A8DYTIIJRDRKeRICBYFQDhHzXa2FitlmCItIfI4x4yYCNln6LMBKTFAEbXjJgo6FfMsywVCEjTh5CGz0RNTDUyEZkI5tVAanGB5S6v4eeU5Sh0/kb1EbFifx0d3f+CqWh4CGQAJ49KvPQFBxIJICbJ1UIbeFTKAEo8xAoo4AEcHP+gVJMjDISgGopMKGABCAeLihSIQDdUtAHIB5RoF4AV9sZuBqvge/3KFTlMTyfUKBaHbhqNsWsL8VPFygExangJMkv12m2Y0l+uUbzQnJ9gNqgOBZcLtDz5GDqYP9aThmGwh6OZj0MjXs4nhPDTCayXQTtPj5SpQgjcS8fKj2MjGT7qZTprxkmWmkYhQm3n1829j+tLKaAiWynoCcynQI2a5+QCTCdgm5/DQzblsN5j00s5m08G76bNSQsksD7bWajHhsYSFgsg3nfLZ2UMlbFae9tvfaNzfat3fbN7WtFkN3nueCwxttBQwsNERXF/vNd86m5MTTpc171epZmqM2JNFwHleBIq2fF8J7EaiHs9dZp8FSTaxkLxPlA1Y0fvvi85uXrjHdw4xOtyY1NiHhRzE3vaBMHPzRdyIwb5tA2w1g29k++9Lc+LFIvpwAAAABJRU5ErkJggg==') 64 64, auto; }
+.porthole__mask { position: absolute; left: -1.8rem; top: -1.8rem; right: -1.8rem; bottom: -1.8rem; border-radius: 10.2rem; border: solid 1.1rem #fff;
+  &:before, &:after { content: ''; display: block; position: absolute; }
+  &:before { left: 1rem; top: 1rem; right: 1rem; bottom: 1rem; border: solid 1.4rem #fff; border-radius: 8rem; }
+  &:after { left: 0; top: 0; width: 100%; height: 100%; border: solid 1.2rem #DFE2DF; border-radius: 9rem; }
+}
+
+@media @maxTablet {
+  .porthole { border-width: 1rem; padding: 1rem; border-radius: 7rem; }
+  .porthole__video { width: 12rem; height: 17rem; border-radius: 5rem;
+    iframe { display: none; }
+    &:after { content: ''; display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);  width: 4rem; height: 4rem; background: url('@{path-images}/video-cursor.png') no-repeat 50% 50%; background-size: contain; pointer-events: none; }
+  }
+  .porthole__mask { display: none; }
+}
+
+@media @maxMobile {
+  .porthole { border-width: .8rem; padding: .8rem; border-radius: 5rem; margin: 0 auto 2rem; }
+  .porthole__video { width: 10rem; height: 13rem; border-radius: 3.5rem; }
+}
+

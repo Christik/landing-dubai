@@ -1,0 +1,16 @@
+/* ==========================================================================
+   More
+   ========================================================================== */
+
+a.more { display: inline-flex; align-items: center; color: @color-text; }
+.more__text { font-size: .85rem; }
+.more__icon { width: 1.5rem; height: 1.5rem; border-radius: 50%; background: @color-primary url('@{path-images}/more-arr.svg') no-repeat 50% 50%; margin-left: .75rem; }
+
+// white
+a.more_white { color: #fff; }
+
+@media (hover: hover) {
+  .more:hover {
+    .more__icon { background-color: @color-primary-hover; }
+  }
+}

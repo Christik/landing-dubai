@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Section Map
+   ========================================================================== */
+
+.section-map { background: @color-dark; color: #fff; height: 41.5rem; padding: 0; }
+
+@media @maxTablet {
+  .section-map { height: 36rem; }
+}
+
+@media @maxMobile {
+  .section-map { height: auto; }
+}
+
+/* ==========================================================================
+   Map
+   ========================================================================== */
+
+.section-map__map { }
+
+@media @minMobile {
+  .section-map__map { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+}
+
+@media @maxMobile {
+  .section-map__map { position: relative; width: 100%; height: 20rem; }
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.section-map__content { background: @color-dark; position: absolute; left: 0; top: 0; height: 100%; }
+
+@media @minTablet {
+  .section-map__content { width: ~"max(22.75rem, (100vw - 21rem) / 2)"; min-width: 22.75rem; }
+}
+
+@media @maxTablet {
+  .section-map__content { width: 20rem; }
+}
+
+@media @maxMobile {
+  .section-map__content { position: relative; width: auto; }
+}
+
+/* ==========================================================================
+   Slider
+   ========================================================================== */
+
+.slider-map { position: absolute; top: 0; right: 0; width: 100%; height: 100%; overflow: hidden; }
+.slider-map__wrapper { }
+.slider-map__slide { }
+
+@media @minTablet {
+  .slider-map { width: 25.75rem; }
+}
+
+@media @maxMobile {
+  .slider-map { position: relative; width: auto; }
+}
+
+/* ==========================================================================
+   Slide
+   ========================================================================== */
+
+.slider-map__slide { }
+.slider-map__slide__photo { height: 17rem; margin: 0 0 4.5rem; position: relative; overflow: hidden;
+  img { display: block; }
+}
+.slider-map__slide__title,
+.slider-map__slide__text { margin-left: 4rem; margin-right: 3rem; }
+.slider-map__slide__title { font-size: 1.8rem; line-height: 1; }
+.slider-map__slide__text { font-size: .85rem; line-height: 1.5; }
+
+@media @maxTablet {
+  .slider-map__slide__photo { height: 14rem; margin-bottom: 3rem;
+    img { height: 100%; width: auto;  }
+  }
+  .slider-map__slide__title,
+  .slider-map__slide__text { margin-left: 1rem; margin-right: 1rem; }
+}
+
+@media @maxMobile {
+  .slider-map__slide { padding-bottom: 5rem; }
+  .slider-map__slide__photo { height: auto; margin-bottom: 1.5rem;
+    img { height: auto; width: 100%; }
+  }
+}
+
+/* ==========================================================================
+   Indexes
+   ========================================================================== */
+
+.slider-map__index { position: absolute; left: 4rem; top: 19rem; font-size: .8rem; color: fade(#fff, 50%); }
+.slider-map__index__current { color: #fff; }
+
+@media @maxTablet {
+  .slider-map__index { left: 1rem; top: 15rem; }
+}
+
+@media @maxMobile {
+  .slider-map__index { display: none; }
+}
+
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+
+.slider-map__nav { position: absolute; right: 3rem; bottom: 4.5rem; z-index: 5; transform: translateY(50%); }
+
+@media @maxTablet {
+  .slider-map__nav { right: 1rem; bottom: 3rem; }
+}
+
+/* ==========================================================================
+   More
+   ========================================================================== */
+
+.slider-map__more { position: absolute; left: 4rem; bottom: 4.5rem; transform: translateY(50%);  z-index: 5; }
+
+@media @maxTablet {
+  .slider-map__more { left: 1rem; bottom: 3rem; }
+}

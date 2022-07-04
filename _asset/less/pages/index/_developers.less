@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Section Developers
+   ========================================================================== */
+
+.section-developers { padding-bottom: 2.5rem; }
+
+/* ==========================================================================
+   Developers
+   ========================================================================== */
+
+.developers { display: flex; align-items: center; justify-content: space-between; margin: 1rem 0 0; }
+.developers__item { opacity: .7; filter: gray; -webkit-filter: grayscale(1); margin: 2rem 0 0; }
+
+@media @maxTablet {
+  .developers { flex-wrap: wrap; justify-content: flex-start; margin-right: -1rem; }
+  .developers__item { margin-right: 2rem; }
+}
+
+@media (hover: hover) {
+  .developers__item { cursor: default;
+    &:hover { opacity: 1; filter: none; -webkit-filter: none; }
+  }
+}
+
