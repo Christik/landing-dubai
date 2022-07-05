@@ -1141,22 +1141,22 @@ img[data-src] {
   border: solid 1px #fff;
   border-radius: 50%;
   overflow: hidden;
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
   position: relative;
-  background: #fff;
+  background: none;
 }
-.time-of-day__icon:before {
-  content: '';
+.time-of-day__icon svg {
   display: block;
+  width: 61px;
+  height: 65px;
+  fill: none;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: #000;
-  -webkit-transform: translate(25%, -10%);
-      -ms-transform: translate(25%, -10%);
-          transform: translate(25%, -10%);
+  right: 0.1rem;
+  top: -0.9rem;
+  pointer-events: none;
+}
+.time-of-day__icon svg path {
+  fill: #fff;
 }
 .time-of-day__text {
   margin: 0 0 0 0.5rem;
@@ -1174,17 +1174,17 @@ img[data-src] {
   background-color: #fff;
 }
 @media (hover: hover) {
-  .time-of-day__icon:before {
+  .time-of-day__icon svg {
     -webkit-transition: -webkit-transform 0.3s;
     transition: -webkit-transform 0.3s;
     -o-transition: transform 0.3s;
     transition: transform 0.3s;
     transition: transform 0.3s, -webkit-transform 0.3s;
   }
-  .time-of-day:hover .time-of-day__icon:before {
-    -webkit-transform: translate(100%, -100%);
-        -ms-transform: translate(100%, -100%);
-            transform: translate(100%, -100%);
+  .time-of-day:hover .time-of-day__icon svg {
+    -webkit-transform: translate(1rem, -0.5rem);
+        -ms-transform: translate(1rem, -0.5rem);
+            transform: translate(1rem, -0.5rem);
   }
 }
 /* ==========================================================================
