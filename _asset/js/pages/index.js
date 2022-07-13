@@ -275,11 +275,13 @@ $(document).ready(function(){
             let lastAnimation = 0;
             const gap = 2;
             const animatedFlags = [true, true];
+            const screenDistanceScroll = 3;
 
             if (sectionContent.getBoundingClientRect().height + 200 > window.innerHeight) {
                 const padding = (sectionContent.getBoundingClientRect().height + 200 - window.innerHeight) / 2;
-                section.style.paddingTop = padding - 60 + 'px';
-                section.style.paddingBottom = padding + '10px';
+                console.log(padding);
+                section.style.paddingTop = (padding - 0) + 'px';
+                section.style.paddingBottom = (padding - 60) + 'px';
             }
 
             const scrollSection = function (animatedFlag, scrollTopValue) {
@@ -313,8 +315,8 @@ $(document).ready(function(){
                     const currentGap = (index === 0) ? 0 : gap;
 
                     if (
-                        (sectionInPosition.top + window.innerHeight * index + currentGap <= 0) &&
-                        (sectionInPosition.top + window.innerHeight * (index + 1) >= 0)
+                        (sectionInPosition.top + (window.innerHeight * (screenDistanceScroll - 1) / 2) + (window.innerHeight * index) + currentGap <= 0) &&
+                        (sectionInPosition.top + (window.innerHeight * screenDistanceScroll * (index + 1)) >= 0)
                     ) {
                         if (animatedFlags[index]) {
                             const timeNow = new Date().getTime();
@@ -324,13 +326,13 @@ $(document).ready(function(){
                                     setSectionClass(index, 2);
                                     scrollSection(
                                         animatedFlags[index],
-                                        section.offsetTop + sectionIn.offsetTop + window.innerHeight * (index + 1)
+                                        section.offsetTop + sectionIn.offsetTop + (window.innerHeight * screenDistanceScroll * (index + 1))
                                     );
                                 } else {
                                     setSectionClass(index, 1);
                                     scrollSection(
                                         animatedFlags[index],
-                                        section.offsetTop + sectionIn.offsetTop + window.innerHeight * index + currentGap
+                                        section.offsetTop + sectionIn.offsetTop + (window.innerHeight * screenDistanceScroll * index) + currentGap
                                     );
                                 }
 

@@ -2408,7 +2408,7 @@ img[data-src] {
     padding: 0;
   }
   .section-about__out {
-    height: 300vh;
+    height: 900vh;
     position: relative;
   }
   .section-about__wrapper {
@@ -2587,7 +2587,7 @@ img[data-src] {
     left: 0;
     top: 0;
     height: 100%;
-    width: max(22.7rem, (100vw - 66rem) / 2 + 22.3rem);
+    width: max(22.7rem, (100vw - 66rem) / 2 + 22.25rem);
     overflow: hidden;
   }
   .section-about__photos__in {
